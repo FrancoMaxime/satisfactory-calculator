@@ -137,7 +137,7 @@
 
     ],
     "recipes": [
-        {"name": "Adaptive Control Unit","key_name": "adaptive-control-unit","category": "crafting3","time": 120,"ingredients": [["automated-wiring", 5],["circuit-board", 5],["heavy-modular-frame", 1],["computer", 2]],"product": ["adaptive-control-unit", 1]},
+        {"name": "Adaptive Control Unit","key_name": "adaptive-control-unit","category": "crafting3","time": 60,"ingredients": [["automated-wiring", 5],["circuit-board", 5],["heavy-modular-frame", 1],["computer", 2]],"product": ["adaptive-control-unit", 1]},
         {"name": "AI Limiter","key_name": "ai-limiter","category": "crafting2","time": 12,"ingredients": [["copper-sheet", 5],["quickwire", 20]],"product": ["ai-limiter", 1]},
         {"name": "Alclad Aluminum Sheet","key_name": "alclad-aluminum-sheet","category": "crafting2","time": 6,"ingredients": [["aluminum-ingot", 3],["copper-ingot", 1]],"product": ["alclad-aluminum-sheet", 3]},
         {"name": "Alumina Solution","key_name": "alumina-solution","category": "refining","time": 6,"ingredients": [["bauxite", 12],["water", 18]],"product": ["alumina-solution", 12]},
