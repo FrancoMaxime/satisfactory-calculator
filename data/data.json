@@ -7,7 +7,8 @@
         { "name": "Conveyor Belt Mk.5", "key_name": "belt5", "rate": 780}
     ],
     "buildings": [
-        { "name": "Constructor", "key_name": "constructor", "category": "crafting1", "power": 4, "max": 1},
+        { "name": "Converter", "key_name": "converter", "category": "converter", "power": 4, "max": 1},
+		{ "name": "Constructor", "key_name": "constructor", "category": "crafting1", "power": 4, "max": 1},
         { "name": "Assembler", "key_name": "assembler", "category": "crafting2", "power": 15, "max": 2},
         { "name": "Manufacturer", "key_name": "manufacturer", "category": "crafting3", "power": 55, "max": 4},
         { "name": "Particle Accelerator", "key_name": "particle-accelerator", "category": "crafting4", "power": 55, "max": 4},
