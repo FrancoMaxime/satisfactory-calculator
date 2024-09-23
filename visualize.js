@@ -134,8 +134,18 @@ function getMachineCountString(d) {
 }
 
 function getTotalItemRate(node, totals) {
-    let totalItemRate = spec.format.count(node.count) * spec.format.rateFactor * node.recipe.product.amount / node.recipe.time
-    return `\u00d7 ${totalItemRate}/${spec.format.rateName}`
+    let totalItemRate = (node.count.toFloat() * spec.format.rateFactor * node.recipe.product.amount / node.recipe.time)
+    return `\u00d7 ${totalItemRate.toFixed(spec.format.ratePrecision)}/${spec.format.rateName}`
+}
+
+function getTotalBuildingRate(node, totals) {
+    let totalBuildingRate = (node.count.toFloat() * spec.format.rateFactor * node.recipe.product.amount / node.recipe.time)
+    let roundedNumberUp = Math.ceil(node.count.toFloat());
+    let roundedNumberDn = Math.floor(node.count.toFloat());
+    let percentNumberUp = (100 * node.count.toFloat() / roundedNumberUp).toFixed(3);
+    let percentNumberDn = (100 * node.count.toFloat() / roundedNumberDn).toFixed(3);
+
+    return `Use:\n ${roundedNumberUp} \u00d7 ${percentNumberUp}%\n ${roundedNumberDn} \u00d7 ${percentNumberDn}%`
 }
 
 function getOverclockString(d) {
@@ -352,6 +362,6 @@ export function renderTotals(totals, targets, ignore) {
             .attr("height", d => d.rect.height)
             .on("click", toggleIgnoreHandler)
             .append("title")
-                .text(d => d.node.name + (d.node.count.isZero() ? "" : ` ${getTotalItemRate(d.node, totals)}\n${d.node.building.name} ${getMachineCountString(d.node)}\n${getOverclockString(d.node)}`))
+                .text(d => d.node.name + (d.node.count.isZero() ? "" : ` ${getTotalItemRate(d.node, totals)}\n${d.node.building.name} ${getMachineCountString(d.node)}\n${getTotalBuildingRate(d.node, totals)}`))
 }
 
