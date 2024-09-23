@@ -133,6 +133,11 @@ function getMachineCountString(d) {
     return `\u00d7 ${spec.format.count(d.count)}`
 }
 
+function getTotalItemRate(node, totals) {
+    let totalItemRate = spec.format.count(node.count) * spec.format.rateFactor * node.recipe.product.amount / node.recipe.time
+    return `\u00d7 ${totalItemRate}/${spec.format.rateName}`
+}
+
 function getOverclockString(d) {
     console.assert(!d.count.isZero(), "Items that aren't produced through machines (machine count == 0) can't have an overclock value!")
     return `${spec.getOverclock(d.recipe).mul(Rational.from_float(100)).toString()}%`
@@ -347,6 +352,6 @@ export function renderTotals(totals, targets, ignore) {
             .attr("height", d => d.rect.height)
             .on("click", toggleIgnoreHandler)
             .append("title")
-                .text(d => d.node.name + (d.node.count.isZero() ? "" : `\n${d.node.building.name} ${getMachineCountString(d.node)}\n${getOverclockString(d.node)}`))
+                .text(d => d.node.name + (d.node.count.isZero() ? "" : ` ${getTotalItemRate(d.node, totals)}\n${d.node.building.name} ${getMachineCountString(d.node)}\n${getOverclockString(d.node)}`))
 }
 
